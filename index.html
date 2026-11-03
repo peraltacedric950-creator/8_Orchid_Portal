@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090817">
+<title>ORCHID LAB | Grade 8 Science Portal</title>
+<link rel="stylesheet" href="css/style.css">
+
+</head>
+<body>
+<section class="auth-screen" id="authScreen">
+  <div class="auth-panel">
+    <div class="brand auth-brand"><div class="brand-mark">✳</div><div><strong>ORCHID LAB</strong><small>SCIENCE PORTAL / 08</small></div></div>
+    <div class="eyebrow">SECURE STUDENT ACCESS</div>
+    <h1>WELCOME TO<br><span class="accent">YOUR SCIENCE UNIVERSE.</span></h1>
+    <p class="auth-intro">Create a student account or log in to continue to the Grade 8 – Orchid dashboard.</p>
+    <div class="auth-tabs">
+      <button type="button" class="auth-tab active" data-auth-tab="login">STUDENT LOGIN</button>
+      <button type="button" class="auth-tab" data-auth-tab="register">STUDENT REGISTER</button>
+      <button type="button" class="auth-tab" data-auth-tab="admin">ADMIN ACCESS</button>
+    </div>
+    <form id="loginForm" class="auth-form">
+      <div class="field"><label>EMAIL ADDRESS</label><input id="loginEmail" type="email" placeholder="student@example.com" autocomplete="username" required></div>
+      <div class="field"><label>PASSWORD</label><input id="loginPassword" type="password" placeholder="Enter your password" autocomplete="current-password" required></div>
+      <button class="btn auth-submit" type="submit">LOG IN TO DASHBOARD ↗</button>
+      <p class="auth-message" id="loginMessage" role="status"></p>
+    </form>
+    <form id="registerForm" class="auth-form" hidden>
+      <div class="field"><label>FULL NAME</label><input id="registerName" type="text" placeholder="Your full name" autocomplete="name" required></div>
+      <div class="field"><label>EMAIL ADDRESS</label><input id="registerEmail" type="email" placeholder="student@example.com" autocomplete="email" required></div>
+      <div class="field"><label>CREATE PASSWORD</label><input id="registerPassword" type="password" placeholder="At least 8 characters" autocomplete="new-password" minlength="8" required></div>
+      <div class="field"><label>CONFIRM PASSWORD</label><input id="confirmPassword" type="password" placeholder="Re-enter your password" autocomplete="new-password" minlength="8" required></div>
+      <button class="btn auth-submit" type="submit">CREATE ACCOUNT ↗</button>
+      <p class="auth-message" id="registerMessage" role="status"></p>
+    </form>
+    <div id="adminPanel" hidden>
+      <form id="adminLoginForm" class="auth-form">
+        <div class="eyebrow">AUTHORIZED PERSONNEL ONLY</div>
+        <div class="field"><label>ADMIN EMAIL</label><input id="adminLoginEmail" type="email" placeholder="admin@example.com" autocomplete="username" required></div>
+        <div class="field"><label>PASSWORD</label><input id="adminLoginPassword" type="password" placeholder="Admin password" autocomplete="current-password" required></div>
+        <button class="btn auth-submit" type="submit">LOG IN AS ADMIN ↗</button>
+        <p class="auth-message" id="adminLoginMessage" role="status"></p>
+        <button class="text-link" id="showAdminRegister" type="button">Need an admin account? Register with an access code.</button>
+      </form>
+      <form id="adminRegisterForm" class="auth-form" hidden>
+        <div class="eyebrow">ADMIN ACCOUNT ENROLLMENT</div>
+        <div class="field"><label>ADMIN NAME</label><input id="adminRegisterName" type="text" placeholder="Administrator name" required></div>
+        <div class="field"><label>ADMIN EMAIL</label><input id="adminRegisterEmail" type="email" placeholder="admin@example.com" required></div>
+        <div class="field"><label>CREATE PASSWORD</label><input id="adminRegisterPassword" type="password" minlength="8" placeholder="At least 8 characters" required></div>
+        <div class="field"><label>CONFIRM PASSWORD</label><input id="adminConfirmPassword" type="password" minlength="8" placeholder="Re-enter password" required></div>
+        <div class="field"><label>SPECIAL ADMIN ACCESS CODE</label><input id="adminAccessCode" type="password" placeholder="Enter admin access code" required></div>
+        <button class="btn auth-submit" type="submit">CREATE ADMIN ACCOUNT ↗</button>
+        <p class="auth-message" id="adminRegisterMessage" role="status"></p>
+        <button class="text-link" id="backToAdminLogin" type="button">Back to admin login</button>
+      </form>
+    </div>
+    <small class="auth-note">Demo accounts are saved in this browser only.</small>
+  </div>
+</section>
+<div class="app" id="dashboardApp" hidden>
+<aside class="sidebar" id="sidebar">
+  <div class="brand"><div class="brand-mark">✳</div><div><strong>ORCHID LAB</strong><small>SCIENCE PORTAL / 08</small></div></div>
+  <div class="nav-label">MAIN NAVIGATION</div>
+  <nav class="nav">
+    <button class="active" data-page="home"><span class="ico">⌂</span> Overview</button>
+    <button data-page="resources"><span class="ico">⚗</span> Learning Resources</button>
+    <button data-page="announcements"><span class="ico">◈</span> Announcements</button>
+    <button data-page="activities"><span class="ico">⌬</span> Activities & Quizzes</button>
+    <button data-page="progress"><span class="ico">▥</span> My Progress</button>
+    <button data-page="profile"><span class="ico">◎</span> Student Profile</button>
+  </nav>
+  <div class="nav-label">INFORMATION</div>
+  <nav class="nav"><button data-page="about"><span class="ico">✧</span> About the Portal</button></nav>
+  <div class="side-bottom"><b>✦ ORCHID SCIENCE NETWORK</b><p>Explore. Experiment. Understand the universe around you.</p></div>
+</aside>
+<main class="main">
+  <header class="topbar"><div style="display:flex;gap:12px;align-items:center"><button class="btn secondary mobile-menu" id="menuBtn">☰</button><span class="crumb">NVGCHS / GRADE 08 / ORCHID</span></div><div class="top-actions"><span class="pill" id="today">SCIENCE YEAR 2026</span><span class="pill" id="roleLabel">STUDENT</span><div class="avatar" id="avatar">ST</div><button class="btn secondary logout-btn" id="logoutBtn" type="button">LOG OUT</button></div></header>
+
+  <section class="page active" id="home">
+    <div class="hero">
+      <div class="eyebrow">✦ YOUR DIGITAL SCIENCE UNIVERSE</div>
+      <h1>THINK BEYOND.<br><span class="accent">DISCOVER EVERYTHING.</span></h1>
+      <p>Welcome to the Science Learning Resources Portal for Grade 8 – Orchid. Explore scientific ideas, access class resources, stay updated, and track your learning journey.</p>
+      <div class="hero-buttons"><button class="btn" data-go="resources">EXPLORE RESOURCES ↗</button><button class="btn secondary" data-go="about">ABOUT THE PORTAL</button></div>
+      <div class="orbit"></div>
+    </div>
+    <div class="section-head"><h2>YOUR SCIENCE DASHBOARD</h2><span>GRADE 8 • ORCHID</span></div>
+    <div class="grid">
+      <div class="card stat"><div class="stat-icon">⚗</div><div><strong>01</strong><small>Learning space</small></div></div>
+      <div class="card stat"><div class="stat-icon">◈</div><div><strong id="noticeCount">00</strong><small>Announcements posted</small></div></div>
+      <div class="card stat"><div class="stat-icon">✧</div><div><strong>∞</strong><small>Curiosity level</small></div></div>
+    </div>
+    <div class="section-head"><h2>EXPLORE THE SCIENCE ZONE</h2><span>Choose where to go next</span></div>
+    <div class="grid">
+      <div class="card feature-card"><div class="symbol" style="color:var(--cyan)">⚗</div><h3>LEARNING RESOURCES</h3><p>Open the resource area for materials provided by your Science teacher.</p></div>
+      <div class="card feature-card"><div class="symbol" style="color:var(--pink)">◈</div><h3>CLASS ANNOUNCEMENTS</h3><p>Check important reminders, class updates, and upcoming activities.</p></div>
+      <div class="card feature-card"><div class="symbol" style="color:var(--violet)">⌬</div><h3>ACTIVITIES & QUIZZES</h3><p>Find information about assigned activities and assessments.</p></div>
+    </div>
+    <div class="section-head"><h2>RECENT CLASS UPDATES</h2><span>Latest information</span></div>
+    <div class="card" id="homeNotices"><div class="notice"><span class="dot"></span><div><b>Welcome to Orchid Lab</b><small>Your Science learning portal is ready. Check this area for teacher announcements.</small></div></div><div class="notice"><span class="dot"></span><div><b>Learning resources area</b><small>Resources can be added and managed by your teacher.</small></div></div></div>
+  </section>
+
+  <section class="page" id="resources">
+    <div class="eyebrow">KNOWLEDGE ARCHIVE / 01</div><h1 class="page-title">LEARNING RESOURCES</h1><p class="intro">A dedicated space for Science learning materials. Your teacher can add resource links and descriptions here when they are ready.</p>
+    <div class="resource-empty"><div class="big">⚗️</div><h3>THE RESOURCE VAULT IS READY</h3><p>No modules, presentations, or learning files are included in this starter portal. This section is intentionally left ready for your own materials.</p></div>
+  </section>
+
+  <section class="page" id="announcements">
+    <div class="eyebrow">TRANSMISSION LOG / 02</div><h1 class="page-title">ANNOUNCEMENTS</h1><p class="intro">Stay informed about class reminders, schedules, and important updates from your Science teacher.</p>
+    <div class="card" id="announcementList"><div class="resource-empty"><div class="big">◈</div><h3>NO TRANSMISSIONS YET</h3><p>New class announcements will appear here.</p></div></div>
+  </section>
+
+  <section class="page" id="activities">
+    <div class="eyebrow">FIELD EXPERIMENTS / 03</div><h1 class="page-title">ACTIVITIES & QUIZZES</h1><p class="intro">Use this space to view activity instructions, assessment reminders, and quiz information posted by your teacher.</p>
+    <div class="resource-empty"><div class="big">⌬</div><h3>ACTIVITY BOARD READY</h3><p>No activities or quizzes have been posted yet. Check back for your teacher's updates.</p></div>
+  </section>
+
+  <section class="page" id="progress">
+    <div class="eyebrow">STUDENT ANALYTICS / 04</div><h1 class="page-title">MY PROGRESS</h1><p class="intro">A simple overview of your learning progress. Progress figures can be updated when your class begins using the portal.</p>
+    <div class="grid"><div class="card"><div class="eyebrow">RESOURCES VIEWED</div><h2>—</h2><p>Tracking is not enabled yet.</p></div><div class="card"><div class="eyebrow">ACTIVITIES COMPLETED</div><h2>—</h2><p>No activity records yet.</p></div><div class="card"><div class="eyebrow">QUIZ PERFORMANCE</div><h2>—</h2><p>No scores have been recorded.</p></div></div>
+  </section>
+
+  <section class="page" id="profile">
+    <div class="eyebrow">IDENTIFICATION / 05</div><h1 class="page-title">STUDENT PROFILE</h1><p class="intro">Enter your details to personalize this portal on the current device. This demo saves the profile only in this browser.</p>
+    <div class="card"><form id="profileForm" class="form-grid">
+      <div class="field"><label>FULL NAME</label><input id="fullName" placeholder="Enter your full name" required></div>
+      <div class="field"><label>STUDENT NUMBER</label><input id="studentNo" placeholder="Enter student number"></div>
+      <div class="field"><label>GRADE & SECTION</label><input value="Grade 8 – Orchid" readonly></div>
+      <div class="field"><label>SCHOOL</label><input value="NVGCHS" readonly></div>
+      <div class="field full"><button class="btn" type="submit">SAVE PROFILE</button></div>
+    </form><p id="profileMsg" style="color:var(--lime);margin:12px 0 0"></p></div>
+  </section>
+
+  <section class="page" id="about">
+    <div class="eyebrow">SYSTEM INFORMATION / 06</div><h1 class="page-title">ABOUT ORCHID LAB</h1><p class="intro">A web-based learning portal created to support the management and access of Science learning resources for Grade 8 – Orchid students of NVGCHS.</p>
+    <div class="two-col"><div class="card"><h3 style="font-size:13px;color:var(--cyan)">PROJECT PURPOSE</h3><p>The portal provides a centralized digital space where students can access teacher-provided learning resources, view announcements, check activity information, and keep track of their learning.</p><br><p>Its visual identity combines science laboratory elements, neon fire-punk energy, chemistry-inspired graphics, and a galaxy-themed interface.</p></div><div class="card"><h3 style="font-size:13px;color:var(--pink)">PORTAL DETAILS</h3><div class="notice"><div><b>Project</b><small>Science Learning Resources Management Web-Based Portal</small></div></div><div class="notice"><div><b>Target users</b><small>Grade 8 – Orchid Students</small></div></div><div class="notice"><div><b>Institution</b><small>NVGCHS</small></div></div></div></div>
+  </section>
+  <footer class="footer"><span>© 2026 ORCHID LAB • GRADE 8 SCIENCE PORTAL</span><span>BUILT FOR CURIOSITY <span style="color:var(--pink)">✦</span></span></footer>
+</main>
+</div>
+<script src="js/script.js"></script>
+
+</body>
+</html>
